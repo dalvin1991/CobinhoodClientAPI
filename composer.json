@@ -1,0 +1,26 @@
+{
+    "name": "dalvin1991/cobinhood_client_api",
+    "description": "Cobinhood Client API",
+    "type": "project",
+    "keywords": ["package", "api", "cobinhood", "cryptocurrency", "client"],
+    "require": {
+        "guzzlehttp/guzzle": "^6.2",
+        "php": ">=5.5",
+        "textalk/websocket": "master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "dalvin1991",
+            "email": "dalvinteng1991@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "CobinhoodClientAPI\\": "src/",
+            "CobinhoodClientAPI\\Managers\\": "src/Managers/",
+            "CobinhoodClientAPI\\Repos\\": "src/Repos/"
+        }
+    }
+}
