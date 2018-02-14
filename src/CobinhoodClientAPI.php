@@ -150,29 +150,29 @@ class CobinhoodClientAPI
         return $manager->getDeposits($this->url,$this->apikey);
     }
 
-    public function startOrderWS($keepAlive = false, $timeout = 60){
-        $manager= new WebSocketManager();  
-        $manager->startOrderWS($this->wss,$this->apikey,$keepAlive,$timeout);
+    public function startOrderWS($keepAlive = false, $timeout = 60, $class = null, $functionName = null){
+        $manager= new WebSocketManager();
+        $manager->startOrderWS($this->wss,$this->apikey,$keepAlive,$timeout,$class,$functionName);
     }
 
-    public function startTradesWS($tradingPairID, $keepAlive = false, $timeout = 60){
+    public function startTradesWS($tradingPairID, $keepAlive = false, $timeout = 60, $class = null, $functionName = null){
         $manager= new WebSocketManager();  
-        $manager->startTradesWS($this->wss,$tradingPairID,$keepAlive,$timeout);        
+        $manager->startTradesWS($this->wss,$tradingPairID,$keepAlive,$timeout,$class,$functionName);        
     }
 
-    public function startOrderBookWS($tradingPairID, $precision = "1E-8", $keepAlive = false, $timeout = 60){
+    public function startOrderBookWS($tradingPairID, $precision = "1E-8", $keepAlive = false, $timeout = 60, $class = null, $functionName = null){
         $manager= new WebSocketManager();  
-        $manager->startTradesWS($this->wss,$tradingPairID,$precision,$keepAlive,$timeout);        
+        $manager->startOrderBookWS($this->wss,$tradingPairID,$precision,$keepAlive,$timeout,$class,$functionName);        
     }
 
-    public function startTinkerWS($tradingPairID, $keepAlive = false, $timeout = 60){
-        $manager= new WebSocketManager();  
-        $manager->startTradesWS($this->wss,$tradingPairID,$keepAlive,$timeout);        
+    public function startTinkerWS($tradingPairID, $keepAlive = false, $timeout = 60, $class = null, $functionName = null){
+        $manager= new WebSocketManager();
+        $manager->startTinkerWS($this->wss,$tradingPairID,$keepAlive,$timeout,$class,$functionName);        
     }
 
-    public function startCandlesWS($tradingPairID,$timeframe){
+    public function startCandlesWS($tradingPair, $keepAlive = false, $timeout = 60, $class = null, $functionName = null){
         $manager= new WebSocketManager();  
-        $manager->startTradesWS($this->wss,$tradingPairID,$keepAlive,$timeout); 
+        $manager->startCandlesWS($this->wss,$tradingPair,$keepAlive,$timeout,$class,$functionName); 
     }    
 }
 ?>

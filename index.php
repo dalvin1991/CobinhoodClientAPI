@@ -34,7 +34,7 @@ echo $client->getRecentTrades('STK-BTC');
 /*
 echo "<h1>Chart</h1>";
 echo "<h3>Candles</h3>";
-echo $client->getCandles('STK-BTC','1m',);
+echo $client->getCandles('STK-BTC','1m');
 */
 
 /*
@@ -79,15 +79,39 @@ echo $client->getDeposits();
 
 /*
 echo "<h1>WebSocket</h1>";
+$tradingPairsForCandlesWS=[
+    ["tradingPairID"=>"BAT-BTC","timeframe"=>"30m"],
+    ["tradingPairID"=>"COB-BTC","timeframe"=>"30m"],
+    ["tradingPairID"=>"ETH-BTC","timeframe"=>"30m"]
+];
+$tradingPairsForOrderBookWS=[
+    ["tradingPairID"=>"BAT-BTC","precision"=>"1E-8"],
+    ["tradingPairID"=>"COB-BTC","precision"=>"1E-8"],
+    ["tradingPairID"=>"ETH-BTC","precision"=>"1E-8"]
+];
+$customFunction=new CustomFunction();
 echo "<h3>Order</h3>";
 echo $client->startOrderWS();
 echo "<h3>Trades</h3>";
 echo $client->startTradesWS('BAT-BTC');
 echo "<h3>Order Book</h3>";
-echo $client->startOrderBookWS('BAT-BTC');
+echo $client->startOrderBookWS($tradingPairsForOrderBookWS);
 echo "<h3>Tinker</h3>";
 echo $client->startTinkerWS('BAT-BTC');
 echo "<h3>Candles</h3>";
-echo $client->startCandlesWS('BAT-BTC',"30m");
+echo $client->startCandlesWS($tradingPairsForCandlesWS);
 */
+
+//custom class & function
+class CustomFunction {    
+    static function LogMessage($message) { 
+        $filename="\\log.txt";       
+        // open file 
+        $fd = fopen(__DIR__.$filename, "a"); 
+        // write string 
+        fwrite($fd, $message . "\n"); 
+        // close file 
+        fclose($fd); 
+    }
+}
 ?>
