@@ -4,6 +4,11 @@ Cobinhood Client API
 
 Refer Cobinhood Public API https://cobinhood.github.io/api-public
 
+Composer Command
+```
+composer create-project dalvin1991/cobinhood_client_api
+```  
+
 ## Initialize 
 ##### Initialize 
 `Client $client = new CobinhoodClientAPI("API-KEY");`
